@@ -11,10 +11,10 @@ Creating API with JWT user authentication using the following:
 
 ## Requirements
 
-1. Install [ArangoDB](https://www.arangodb.com/)
-2. Install [Node.js](https://nodejs.org/en/)
+0. Install [ArangoDB](https://www.arangodb.com/)
+1. Install [Node.js](https://nodejs.org/en/)
 
-## Configure `/config/database.js`
+## Configure `/include/config.js`
 
 0. Set JWT secret key
 1. Set location to ArangoDB 
