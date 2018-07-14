@@ -8,7 +8,7 @@ const helmet      = require('helmet')
 const bodyParser  = require('body-parser')
 const morgan      = require('morgan')
 const authRoutes  = require('./lib')
-const port        = process.env.PORT || 4000
+const port        = process.env.PORT || 8080
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
