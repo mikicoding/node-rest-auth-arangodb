@@ -1,0 +1,1 @@
+docker run -e ARANGO_ROOT_PASSWORD="" -v $PWD:/source -p 8529:8529 arangodb
