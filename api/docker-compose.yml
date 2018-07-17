@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  api-server:
+    image: node:9
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=develop
+    volumes:
+      - ./src:/home/node/app
+    ports:
+      - 8080:8080
+    command: "npm start"
