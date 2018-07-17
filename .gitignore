@@ -1,3 +1,8 @@
 node_modules/
 .env
 yarn.lock
+certs/intermediate/
+certs/root-ca/
+certs/out/
+certs/*.key
+certs/*.crt
