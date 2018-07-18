@@ -3,11 +3,11 @@
 An API with JWT user authentication.
 
 Built with:
-* Nodejs
-* Express
-* JWT
+* [Nodejs](https://nodejs.org)
+* [Express](https://expressjs.com)
+* [jwt-simple](https://www.npmjs.com/package/jwt-simple)
 * [Passport](http://www.passportjs.org)
-* ArangoDB
+* [ArangoDB](https://www.arangodb.com)
 
 FYI: I've only run this project on macOS.
 
