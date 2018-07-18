@@ -1,0 +1,31 @@
+
+# ENV variables below are found in .env
+version: '3'
+
+services:
+
+  platform-db:
+    image: arangodb
+    environment:
+      - ARANGO_ROOT_PASSWORD=${ARANGO_ROOT_PASSWORD}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    expose:
+      - "${DB_PORT}"
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+
+  platform-api:
+    build:
+      context: ./app
+    ports:
+      - ${API_PORT}:${API_PORT}
+    image: node:9
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    volumes:
+      - ./app:/home/node/app
+      - ./.env:/home/node/app/.env
+    command: "npm start"

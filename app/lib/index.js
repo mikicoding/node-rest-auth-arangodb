@@ -4,6 +4,7 @@ const {
   DB_USERNAME,
   DB_USERPASS,
   DB_LOCATION,
+  DB_PORT,
   DB_NAME,
 } = process.env
 
@@ -20,7 +21,7 @@ const hour = 60 * minute
 const day = 24 * hour
 
 const { Database, aql } = require('arangojs')
-const db = new Database(DB_LOCATION)
+const db = new Database(`${DB_LOCATION}:${DB_PORT}`)
 db.useDatabase(DB_NAME)
 db.useBasicAuth(DB_USERNAME, DB_USERPASS)
 
