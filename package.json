@@ -15,7 +15,7 @@
     "passport-jwt": "*"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node -r dotenv/config app/index.js"
   },
   "version": "1.0.0",
   "description": "Creating API with JWT user authentication using Express, Passport JWT and ArangoDB",

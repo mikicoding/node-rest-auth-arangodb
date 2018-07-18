@@ -1,6 +1,5 @@
 'use strict'
 
-require('dotenv').config()
 const { ENABLE_HTTPS, API_DOMAIN, API_PORT } = process.env
 
 const fs          = require('fs')
@@ -9,7 +8,7 @@ const http        = require('http')
 const helmet      = require('helmet')
 const bodyParser  = require('body-parser')
 const morgan      = require('morgan')
-const authRoutes  = require('./lib')
+const authRoutes  = require('./routes')
 const express     = require('express')
 const app         = express()
 

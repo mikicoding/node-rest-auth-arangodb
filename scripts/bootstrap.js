@@ -1,5 +1,7 @@
 #!/usr/bin/arangosh --javascript.execute
 
+// the values here must match with .env
+
 const _user = require('@arangodb/users')
 
 try {
@@ -10,11 +12,11 @@ try {
 }
 
 try {
-	_user.save('api-user', 'chickenbrainlanguage')
-	_user.grantDatabase('api-user', 'platform')
+	_user.save('api_user', 'localhost')
+	_user.grantDatabase('api_user', 'platform')
 } catch (err) {
 	// if error, assume the user already exists
-	_user.grantDatabase('api-user', 'platform')
+	_user.grantDatabase('api_user', 'platform')
 }
 
 try {

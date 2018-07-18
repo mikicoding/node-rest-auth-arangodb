@@ -56,7 +56,6 @@ apiRoutes.post('/register', async (req, res)=> {
     }
 
   } catch (err) {
-    console.log(err)
     res.send({ success: false, msg: err.message})
   }
 

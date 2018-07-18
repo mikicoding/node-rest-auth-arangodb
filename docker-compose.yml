@@ -22,10 +22,12 @@ services:
       - ${API_PORT}:${API_PORT}
     image: node:9
     user: node
-    working_dir: /home/node/app
+    working_dir: /home/node
     environment:
       - NODE_ENV=${NODE_ENV}
     volumes:
+      - ./.env:/home/node/.env
+      - ./package.json:/home/node/package.json
       - ./app:/home/node/app
-      - ./.env:/home/node/app/.env
+      - ./node_modules:/home/node/node_modules
     command: "npm start"
