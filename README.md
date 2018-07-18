@@ -1,7 +1,8 @@
 # node-rest-auth-arangodb
 
-Creating API with JWT user authentication using:
+An API with JWT user authentication.
 
+Built with:
 * Nodejs
 * Express
 * JWT
@@ -10,6 +11,7 @@ Creating API with JWT user authentication using:
 
 FYI: I've only run this project on macOS.
 
+
 ## Requirements
 
 [Node.js](https://nodejs.org/en/).
@@ -17,7 +19,9 @@ FYI: I've only run this project on macOS.
 If you have [Docker](https://www.docker.com/), you can simply run `docker-compose up`
 and both the Nodejs app and ArangoDB will be launched in separate containers and ready to use.
 
-Or, if you prefer, you can install ArangoDB on localhost. See the next section for setup steps.
+You can install ArangoDB on localhost if you prefer, but using docker is really the faster/easier
+and more correct way to run it.
+
 
 ## Setup
 
@@ -28,6 +32,7 @@ If you're running ArangoDB on localhost, you can manually run the bootstrap scri
 the database, user, and users collection. Simply run `./scripts/bootstrap.js`, assuming
 arangodb is running and arangosh is accessible. If needed, set exec permissions on the file
 like `chmod +x scripts/bootstrap.js` (or whatever it is you do on Windows).
+
 
 ## Run
 
