@@ -16,11 +16,10 @@ services:
       - ./scripts:/docker-entrypoint-initdb.d
 
   platform-api:
-    build:
-      context: ./app
+    build: ./
+      # context: ./app
     ports:
       - ${API_PORT}:${API_PORT}
-    image: node:9
     user: node
     working_dir: /home/node
     environment:

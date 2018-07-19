@@ -1,6 +1,6 @@
 'use strict'
 
-const { ENABLE_HTTPS, API_DOMAIN, API_PORT } = process.env
+const { ENABLE_HTTPS, API_PORT } = process.env
 
 const fs          = require('fs')
 const https       = require('https')
@@ -21,7 +21,7 @@ app.use(morgan('dev'))
 app.use(helmet())
 
 app.get('/', (req, res)=> {
-	res.send(`Hello! The API is at ${API_DOMAIN}:${API_PORT}/api`)
+	res.send(`Hello from API`)
 })
 
 app.all('/api/*', (req, res, next)=> {
@@ -33,7 +33,7 @@ app.all('/api/*', (req, res, next)=> {
 })
 
 app.get('/api/', (req, res)=> {
-	res.send(`Hello! This is the API at ${API_DOMAIN}:${API_PORT}/api`)
+	res.send(`Hello from API`)
 })
 
 app.use('/api/users', authRoutes)
@@ -47,13 +47,13 @@ if (JSON.parse(ENABLE_HTTPS)) {
 	}
 	https.createServer(ssl, app).listen(API_PORT, ()=> {
 		console.log('Using HTTPS')
-		console.log(`API is now running on ${API_DOMAIN}:${API_PORT}/api`)
+		console.log(`API is now running on port ${API_PORT}`)
 	})
 }
 else {
 	app.listen(API_PORT, ()=> {
 		console.log('Using HTTP')
-		console.log(`API is now running on ${API_DOMAIN}:${API_PORT}/api`)
+		console.log(`API is now running on port ${API_PORT}`)
 	})
 }
 
