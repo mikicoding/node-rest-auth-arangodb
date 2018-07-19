@@ -34,7 +34,7 @@ _Only tested with macOS_
 When done, `docker-compose stop` or `docker-compose down`.
 
 
-## To Run On `localhost`
+## To Run On localhost
 
 If you'd rather run node on localhost, then...
 
