@@ -1,8 +1,4 @@
 node_modules/
+localhost-env-vars/*
+!localhost-env-vars/.keep
 .env
-yarn.lock
-certs/intermediate/
-certs/root-ca/
-certs/out/
-certs/*.key
-certs/*.crt

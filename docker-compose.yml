@@ -5,9 +5,8 @@ version: '3'
 services:
 
   platform-db:
+    env_file: .env
     image: arangodb
-    environment:
-      - ARANGO_ROOT_PASSWORD=${ARANGO_ROOT_PASSWORD}
     ports:
       - ${DB_PORT}:${DB_PORT}
     expose:
@@ -16,17 +15,10 @@ services:
       - ./scripts:/docker-entrypoint-initdb.d
 
   platform-api:
+    env_file: .env
     build: ./
-      # context: ./app
     ports:
       - ${API_PORT}:${API_PORT}
     user: node
     working_dir: /home/node
-    environment:
-      - NODE_ENV=${NODE_ENV}
-    volumes:
-      - ./.env:/home/node/.env
-      - ./package.json:/home/node/package.json
-      - ./app:/home/node/app
-      - ./node_modules:/home/node/node_modules
     command: "npm start"

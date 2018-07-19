@@ -12,11 +12,11 @@ try {
 }
 
 try {
-	_user.save('api_user', 'localhost')
-	_user.grantDatabase('api_user', 'platform')
+	_user.save('apiuser', 'localhost')
+	_user.grantDatabase('apiuser', 'platform')
 } catch (err) {
 	// if error, assume the user already exists
-	_user.grantDatabase('api_user', 'platform')
+	_user.grantDatabase('apiuser', 'platform')
 }
 
 try {
