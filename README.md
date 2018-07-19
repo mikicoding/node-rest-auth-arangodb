@@ -1,46 +1,60 @@
 # node-rest-auth-arangodb
 
-An API with JWT user authentication.
+An API with JWT user authentication. Project works out of the box with Docker, or just localhost.
+Be sure to follow the setup instructions so that env vars are passed in.
 
-Built with:
+Made using:
 * [Nodejs](https://nodejs.org)
 * [Express](https://expressjs.com)
 * [jwt-simple](https://www.npmjs.com/package/jwt-simple)
 * [Passport](http://www.passportjs.org)
 * [ArangoDB](https://www.arangodb.com)
 
-FYI: I've only run this project on macOS.
+_Only tested with macOS_
 
 
 ## Requirements
 
-[Node.js](https://nodejs.org/en/).
+* [Docker](https://www.docker.com/get-docker)
 
-If you have [Docker](https://www.docker.com/), you can simply run `docker-compose up`
-and both the Nodejs app and ArangoDB will be launched in separate containers and ready to use.
+### Optional Requirements
 
-You can install ArangoDB on localhost if you prefer, but using docker is really the faster/easier
-and more correct way to run it.
+* [Node.js](https://nodejs.org/en/)
 
 
 ## Setup
 
-* `npm install` or `yarn install` (yarn is faster)
-* Rename `.example-env` to `.env`, this file sets ENV vars for both the API and docker-compose.
-
-If you're running ArangoDB on localhost, you can manually run the bootstrap script to setup
-the database, user, and users collection. Simply run `./scripts/bootstrap.js`, assuming
-arangodb is running and arangosh is accessible. If needed, set exec permissions on the file
-like `chmod +x scripts/bootstrap.js` (or whatever it is you do on Windows).
+* Rename `.env-example` to `.env`
 
 
-## Run
+## To Run
 
-`docker-compose up` or `npm start` if you have ArangoDB running on localhost.
+* `docker-compose up -d` (or just `docker-compose up`)
 
-If you pass `-d` to docker-compose (`docker-compose up -d`) it will run in detached mode,
-meaning it gives you the terminal back once things have started. After that, you can use either
-`docker-compose stop` or `docker-compose down`. The latter will do more cleanup work for you.
+When done, `docker-compose stop` or `docker-compose down`.
+
+
+## To Run On `localhost`
+
+If you'd rather run node on localhost, then...
+
+* `yarn install`
+	* (Yarn is better than npm, do `npm install -g yarn`)
+* Copy `.env` to `localhost-env-vars/<hostname>`
+	* (If you don't know your hostname, run `hostname` in the terminal)
+* `docker-compose up -d database` to run ArangoDB
+* `npm start`
+
+If you're going to run ArangoDB on localhost, see `scripts/boostrap.js`, this runs
+automatically when using `docker-compose`.
+
+
+## When Done
+
+`docker-compose down` will clean up for you.
+
+`docker-compose build api` (or just `docker-compose build`) will build the API image
+(so you can deploy to Kubernetes or whatnot).
 
 
 ## RESTful API endpoints

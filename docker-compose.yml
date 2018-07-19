@@ -4,7 +4,7 @@ version: '3'
 
 services:
 
-  platform-db:
+  database:
     env_file: .env
     image: arangodb
     ports:
@@ -14,11 +14,10 @@ services:
     volumes:
       - ./scripts:/docker-entrypoint-initdb.d
 
-  platform-api:
+  api:
     env_file: .env
     build: ./
+    image: auth-api
     ports:
       - ${API_PORT}:${API_PORT}
-    user: node
-    working_dir: /home/node
-    command: "npm start"
+    command: "npm run start:containerized"
