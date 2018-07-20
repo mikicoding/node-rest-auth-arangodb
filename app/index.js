@@ -49,13 +49,13 @@ if (JSON.parse(ENABLE_HTTPS)) {
 	}
 	https.createServer(ssl, app).listen(9191, ()=> {
 		console.log('Using HTTPS')
-		console.log(`API is now running on port ${9191}`)
+		console.log(`API is now running on port 9191`)
 	})
 }
 else {
 	app.listen(9191, ()=> {
 		console.log('Using HTTP')
-		console.log(`API is now running on port ${9191}`)
+		console.log(`API is now running on port 9191`)
 	})
 }
 

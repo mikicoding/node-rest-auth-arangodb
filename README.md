@@ -70,19 +70,26 @@ sample cURL command below.
 ### POST `/api/users/register`
 
 Register by providing `username` and `password`.
+```
+curl -X POST http://localhost:8686/api/users/register -d 'username=jim&password=password'
+```
+
 
 ### POST `/api/users/authenticate`
 
 Authenticate by providing `username` and `password`.
+```
+curl -X POST http://localhost:8686/api/users/authenticate -d 'username=jim&password=password'
+```
+
 
 ### GET `/api/users/memberinfo`
 
 Get user data by providing `token`.
+```
+curl -X GET http://localhost:8686/api/users/memberinfo -H 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImppbSIsImV4cGlyYXRpb24iOjE1MzIyNzMxMjQwODV9.uKTvxRwZbRMF_WYA5EmVKGvGUJc3Wx9TTjWR7I7MLy4'
+```
 
-### Using cURL to register a new user
-```
-curl -X POST http://localhost:8686/api/users/register -d 'username=jwoods&password=password'
-```
 
 ## Credits
 

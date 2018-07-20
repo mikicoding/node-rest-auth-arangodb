@@ -15,11 +15,21 @@ let status = null
 
 for (let i=1; i <= attempts && status !== 'success'; i++) {
 
-	bootstrap()
-	status = verify()
+	try {
+		bootstrap()
+	} catch (err) {
+		//
+	}
+	try {
+		status = verify()
+	} catch (err) {
+		//
+	}
 
 	console.log(`Attempt ${i} of ${attempts}: Bootstrap status: ${status}`)
 }
+
+console.log('Bootstrapping complete')
 
 function bootstrap() {
 
