@@ -1,10 +1,11 @@
 'use strict'
 
+// DB_PORT_INTERNAL = 8529
+
 const {
+  ARANGODB_DOCKER_NAME,
   DB_USERNAME,
   DB_USERPASS,
-  DB_LOCATION,
-  DB_PORT,
   DB_NAME,
 } = process.env
 
@@ -21,7 +22,7 @@ const hour = 60 * minute
 const day = 24 * hour
 
 const { Database, aql } = require('arangojs')
-const db = new Database(`${DB_LOCATION}:${DB_PORT}`)
+const db = new Database(`http://${ARANGODB_DOCKER_NAME}:8529`)
 db.useDatabase(DB_NAME)
 db.useBasicAuth(DB_USERNAME, DB_USERPASS)
 
@@ -56,7 +57,7 @@ apiRoutes.post('/register', async (req, res)=> {
     }
 
   } catch (err) {
-    res.send({ success: false, msg: err.message})
+    res.send({ success: false, msg: err.message })
   }
 
 })

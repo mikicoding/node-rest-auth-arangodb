@@ -4,20 +4,20 @@ version: '3'
 
 services:
 
-  database:
-    env_file: .env
-    image: arangodb
-    ports:
-      - ${DB_PORT}:${DB_PORT}
-    expose:
-      - "${DB_PORT}"
-    volumes:
-      - ./scripts:/docker-entrypoint-initdb.d
-
   api:
-    env_file: .env
+    env_file: env/${HOSTNAME}
     build: ./
     image: auth-api
     ports:
-      - ${API_PORT}:${API_PORT}
+      - ${API_PORT_EXTERNAL}:9191
     command: "npm run start:containerized"
+
+  database:
+    env_file: env/${HOSTNAME}
+    image: arangodb
+    ports:
+      - ${DB_PORT_EXTERNAL}:8529
+    # expose:
+    #   - "8529"
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d

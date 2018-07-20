@@ -1,6 +1,8 @@
 'use strict'
 
-const { ENABLE_HTTPS, API_PORT } = process.env
+// API_PORT_INTERNAL = 9191
+
+const { ENABLE_HTTPS } = process.env
 
 const fs          = require('fs')
 const https       = require('https')
@@ -45,15 +47,15 @@ if (JSON.parse(ENABLE_HTTPS)) {
 		cert: fs.readFileSync('./certs/root-ca.crt'),
 		ca: fs.readFileSync('./certs/intermediate.crt'),
 	}
-	https.createServer(ssl, app).listen(API_PORT, ()=> {
+	https.createServer(ssl, app).listen(9191, ()=> {
 		console.log('Using HTTPS')
-		console.log(`API is now running on port ${API_PORT}`)
+		console.log(`API is now running on port ${9191}`)
 	})
 }
 else {
-	app.listen(API_PORT, ()=> {
+	app.listen(9191, ()=> {
 		console.log('Using HTTP')
-		console.log(`API is now running on port ${API_PORT}`)
+		console.log(`API is now running on port ${9191}`)
 	})
 }
 

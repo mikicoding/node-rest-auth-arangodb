@@ -1,4 +1,4 @@
 node_modules/
-localhost-env-vars/*
-!localhost-env-vars/.keep
+env/*
+!env/your hostname here
 .env
