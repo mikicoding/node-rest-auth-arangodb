@@ -35,7 +35,8 @@ You can get the hostname of your machine by running `hostname` in the command te
 
 * `docker-compose up -d` (or just `docker-compose up`)
 
-When done, `docker-compose stop` or `docker-compose down`.
+When done, `docker-compose stop` or `docker-compose down`. I notice the API image has to be
+erased manually to get the code to update, use `docker image remove <image ID>`.
 
 
 ## To Run On localhost
@@ -43,11 +44,12 @@ When done, `docker-compose stop` or `docker-compose down`.
 If you'd rather run node on localhost, then...
 
 * `yarn install`
-	* (Yarn is better than npm, do `npm install -g yarn`)
-* Copy `.env` to `localhost-env-vars/<hostname>`
+	* (Yarn is faster than npm, if you don't have it, do `npm install -g yarn`)
+* Rename `env/your hostname here` to match your hostname exactly
 	* (If you don't know your hostname, run `hostname` in the terminal)
-* `docker-compose up -d database` to run ArangoDB
-* `npm start`
+* Change the `ARANGODB_DOCKER_NAME` ENV var to `localhost` instead of `database`
+* `docker-compose up -d database` to run ArangoDB (or just `docker-compose up database`)
+* `npm start` to run the API on localhost, or `npm run start:watch` for auto-reload
 
 If you're going to run ArangoDB on localhost, see `scripts/boostrap.js`, this runs
 automatically when using `docker-compose`.
@@ -71,7 +73,7 @@ sample cURL command below.
 
 Register by providing `username` and `password`.
 ```
-curl -X POST http://localhost:8686/api/users/register -d 'username=jim&password=password'
+curl -X POST http://localhost:9191/api/users/register -d 'username=jim&password=password'
 ```
 
 
@@ -79,7 +81,7 @@ curl -X POST http://localhost:8686/api/users/register -d 'username=jim&password=
 
 Authenticate by providing `username` and `password`.
 ```
-curl -X POST http://localhost:8686/api/users/authenticate -d 'username=jim&password=password'
+curl -X POST http://localhost:9191/api/users/authenticate -d 'username=jim&password=password'
 ```
 
 
@@ -87,7 +89,7 @@ curl -X POST http://localhost:8686/api/users/authenticate -d 'username=jim&passw
 
 Get user data by providing `token`.
 ```
-curl -X GET http://localhost:8686/api/users/memberinfo -H 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImppbSIsImV4cGlyYXRpb24iOjE1MzIyNzMxMjQwODV9.uKTvxRwZbRMF_WYA5EmVKGvGUJc3Wx9TTjWR7I7MLy4'
+curl -X GET http://localhost:9191/api/users/memberinfo -H 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImppbSIsImV4cGlyYXRpb24iOjE1MzIyNzMxMjQwODV9.uKTvxRwZbRMF_WYA5EmVKGvGUJc3Wx9TTjWR7I7MLy4'
 ```
 
 
