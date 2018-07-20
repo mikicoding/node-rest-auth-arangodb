@@ -17,7 +17,5 @@ services:
     image: arangodb
     ports:
       - ${DB_PORT_EXTERNAL}:8529
-    # expose:
-    #   - "8529"
     volumes:
       - ./scripts:/docker-entrypoint-initdb.d

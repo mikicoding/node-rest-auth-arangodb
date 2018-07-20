@@ -24,7 +24,11 @@ _Only tested with macOS_
 
 ## Setup
 
+* Update `HOSTNAME=your hostname goes here` in file `.env-example`
 * Rename `.env-example` to `.env`
+* Rename `env/your hostname here` to match your hostname exactly
+
+You can get the hostname of your machine by running `hostname` in the command terminal.
 
 
 ## To Run
@@ -77,10 +81,7 @@ Get user data by providing `token`.
 
 ### Using cURL to register a new user
 ```
-curl -X POST \
-  http://localhost:8080/api/users/register \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'username=jwoods&password=password'
+curl -X POST http://localhost:8686/api/users/register -d 'username=jwoods&password=password'
 ```
 
 ## Credits
