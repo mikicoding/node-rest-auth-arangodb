@@ -5,4 +5,3 @@ COPY yarn.lock /home/node
 COPY app /home/node/app
 RUN yarn install --pure-lockfile
 CMD npm run start:containerized
-EXPOSE 8080
