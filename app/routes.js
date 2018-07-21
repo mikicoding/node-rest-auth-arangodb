@@ -8,7 +8,7 @@ const apiRoutes = express.Router()
 apiRoutes.use(JWT.initialize())
 apiRoutes.post('/register', require('./controllers/register'))
 apiRoutes.post('/authenticate', require('./controllers/authenticate'))
-apiRoutes.get('/memberinfo', JWT.authenticate, require('./controllers/memberInfo'))
+apiRoutes.get('/memberinfo', JWT.authenticate, require('./controllers/memberinfo'))
 
 
 module.exports = apiRoutes

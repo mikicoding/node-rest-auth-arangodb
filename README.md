@@ -19,7 +19,7 @@ _Only tested with macOS_
 
 ### Optional Requirements
 
-* [Node.js](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/) version 9+
 
 
 ## Setup
