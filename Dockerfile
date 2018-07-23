@@ -1,4 +1,5 @@
 FROM node:9
+EXPOSE 9191
 WORKDIR /home/node
 COPY package.json /home/node
 COPY yarn.lock /home/node
