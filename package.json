@@ -1,24 +1,29 @@
 {
   "name": "node-rest-auth-arangodb",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
     "arango": "*",
     "arangojs": "^5.4.2",
     "bcryptjs": "*",
     "body-parser": "*",
     "express": "*",
-    "helmet": "^3.12.0",
+    "helmet": "^3.12.1",
     "jwt-simple": "*",
     "morgan": "*",
     "passport": "*",
     "passport-jwt": "*"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node -r dotenv/config app/index.js dotenv_config_path=env/$(hostname)",
+    "start:watch": "nodemon -r dotenv/config app/index.js dotenv_config_path=env/$(hostname)",
+    "start:containerized": "node app/index.js"
   },
   "version": "1.0.0",
   "description": "Creating API with JWT user authentication using Express, Passport JWT and ArangoDB",
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^6.0.0",
+    "nodemon": "^1.18.3"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mikicoding/node-rest-auth-arangodb.git"

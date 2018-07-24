@@ -1,0 +1,21 @@
+
+# ENV variables below are found in .env
+version: '3'
+
+services:
+
+  api:
+    env_file: env/${HOSTNAME}
+    build: ./
+    image: auth-api
+    ports:
+      - ${API_PORT_EXTERNAL}:9191
+    command: "npm run start:containerized"
+
+  database:
+    env_file: env/${HOSTNAME}
+    image: arangodb
+    ports:
+      - ${DB_PORT_EXTERNAL}:8529
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d

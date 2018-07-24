@@ -1,0 +1,10 @@
+JWT_SECRET=keep_it_secret_keep_it_safe
+ENABLE_HTTPS=false
+
+DB_USERPASS=localhost
+DB_USERNAME=apiuser
+DB_NAME=platform
+ARANGODB_DOCKER_NAME=database
+ARANGO_ROOT_PASSWORD=localhost
+
+NODE_ENV=develop
